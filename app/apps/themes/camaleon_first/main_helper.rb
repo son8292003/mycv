@@ -42,6 +42,11 @@ module Themes::CamaleonFirst::MainHelper
     profession_pt.add_post(title: "skill3", post_order: 3, content: "skill 3 description");
     profession_pt.add_post(title: "skill4", post_order: 4, content: "skill 4 description");
 
+    language_pt = current_site.post_types.create({name: 'Languages', slug: 'Languages'.to_s.parameterize, description: 'Languages', data_options: {has_category: false, has_tags: false, not_deleted: true, has_summary: false, has_content: true, has_comments: false, has_picture: false, has_template: false}})
+
+    language_pt.add_post(title: "language1", post_order: 1, content: "language 1 description");
+    language_pt.add_post(title: "language2", post_order: 2, content: "language 2 description");
+    language_pt.add_post(title: "language3", post_order: 3, content: "language 3 description");
     
     exp_pt = current_site.post_types.create({name: 'Work_Experience', slug: 'Work_Experience'.to_s.parameterize, description: 'Work Experience', data_options: {has_category: false, has_tags: false, not_deleted: true, has_summary: false, has_content: true, has_comments: false, has_picture: false, has_template: false}})
 
@@ -59,16 +64,6 @@ module Themes::CamaleonFirst::MainHelper
     edu_pt.add_post(title: "edu2", post_order: 2, content: "Edu 2 description", fields: {edu_period: '02/01/2012 - 01/01/2013'});
     edu_pt.add_post(title: "edu3", post_order: 3, content: "Edu 3 description", fields: {edu_period: '02/01/2013 - 01/01/2014'});
     edu_pt.add_post(title: "edu4", post_order: 4, content: "Edu 4 description", fields: {edu_period: '02/01/2014 - Current'});
-=begin
-    extra_post_type = [
-           {name: 'Personal_Details', description: 'Personal Details', options: {has_category: false, has_tags: false, not_deleted: true, has_summary: false, has_content: true, has_comments: false, has_picture: false, has_template: false }}
-       ]
-
-    extra_post_type.each do |pt|
-         model_pt = current_site.post_types.create({name: pt[:name], slug: pt[:name].to_s.parameterize, description: pt[:description], data_options: pt[:options]})
-         model_pt.add_field({name: "Name", slug: "personal_name"}, {field_key: "text_box", translate: false})
-    end
-=end
 
   end
 

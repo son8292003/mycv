@@ -105,6 +105,22 @@
             </div>
         </div>
 
+        <hr/>
+
+
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>Languages</h2>
+                <br/><br/>
+                <div class="col-lg-12"</div>
+                <ul class="list-group">
+                  <% p_langs = current_site.the_posts("languages").all.decorate.each do |p_lang| %>
+                    <li class="list-group-item"><%= p_lang.the_title %> <%= "- "+p_lang.the_content if p_lang.the_content.length>1 %></li>
+                  <% end %>
+                </div>
+            </div>
+        </div>
+
     </div> <!-- /container -->
 </div><!-- /ww -->
 
