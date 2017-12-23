@@ -3,30 +3,22 @@
     <div class="container" >
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-                <% home_page = (current_site.the_post(current_theme.get_field("home_page")) || current_site.the_posts("page").first).decorate %>
-                <h1><%= home_page.the_title %></h1>
-                <div><%= raw home_page.the_content %></div>
-            </div><!-- /col-lg-8 -->
-        </div><!-- /row -->
-        <div class="row">
-            <hr/>
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2>Name</h2>
-                <h4>job title</h4>
+                <h2><%= raw current_theme.the_field("pd_name") %></h2>
+                <h4><%= raw current_theme.the_field("pd_job_title") %></h4>
                 <br/><br/>
                 <div class="col-lg-12"</div>
-                Some description about yourself....Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem.
+                <%= raw current_theme.the_field("pd_description") %>
                 </div>
               <div class="col-lg-6 top-buffer">
                 <table class="table">
                   <tbody>
                     <tr>
                       <th style="width: 50%;">Name</th>
-                      <td>Your Name</td>
+                      <td><%= raw current_theme.the_field("pd_name_on_table") %></td>
                     </tr>
                     <tr>
                       <th style="width: 50%;">Date of birth</th>
-                      <td>Your DOB</td>
+                      <td><%= raw current_theme.the_field("pd_dob") %></td>
                     </tr>
                   </tbody>
                 </table> 
@@ -36,11 +28,11 @@
                   <tbody>
                     <tr>
                       <th style="width: 50%;">Email</th>
-                      <td>Your Email</td>
+                      <td><%= raw current_theme.the_field("pd_email") %></td>
                     </tr>
                     <tr>
                       <th style="width: 50%;">Phone</th>
-                      <td>Your Phone</td>
+                      <td><%= raw current_theme.the_field("pd_phone") %></td>
                     </tr>
                   </tbody>
                 </table> 
@@ -55,9 +47,9 @@
                 <br/><br/>
                 <div class="col-lg-12"</div>
                 <ul class="list-group">
-                  <li class="list-group-item">item1</li>
-                  <li class="list-group-item">item2</li>
-                  <li class="list-group-item">item3</li>
+                  <% p_skills = current_site.the_posts("professional_skills").all.decorate.each do |p_skill| %>
+                    <li class="list-group-item"><%= p_skill.the_title %> <%= "- "+p_skill.the_content if p_skill.the_content.length>1 %></li>
+                  <% end %>
                 </div>
             </div>
         </div>
