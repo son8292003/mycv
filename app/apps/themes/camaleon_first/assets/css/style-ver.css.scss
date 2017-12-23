@@ -287,11 +287,6 @@ bt { font-size: 12px; }
         }
         }
     }
-  .timeline-item:last-child {
-    &:nth-child(even) {
-      float: right;
-    }
-  }
   .timeline-item:nth-child(even) {
     .timeline-panel {
       float: right;
