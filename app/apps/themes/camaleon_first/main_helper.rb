@@ -35,12 +35,30 @@ module Themes::CamaleonFirst::MainHelper
     group.add_field({"name"=>"Column Right", "slug"=>"footer_right"}, {field_key: "editor", translate: true, default_value: "<h4>About Theme</h4><p>Modified from camaleon_first theme.</p>"})
 
 
-    profession_pt = current_site.post_types.create({name: 'Professional_Skills', slug: 'Professional_skills'.to_s.parameterize, description: 'Professional', data_options: {has_category: false, has_tags: false, not_deleted: true, has_summary: false, has_content: true, has_comments: false, has_picture: false, has_template: false}})
+    profession_pt = current_site.post_types.create({name: 'Professional_Skills', slug: 'Professional_skills'.to_s.parameterize, description: 'Professional Skills', data_options: {has_category: false, has_tags: false, not_deleted: true, has_summary: false, has_content: true, has_comments: false, has_picture: false, has_template: false}})
 
     profession_pt.add_post(title: "skill1", post_order: 1, content: "skill 1 description");
     profession_pt.add_post(title: "skill2", post_order: 2, content: "skill 2 description");
     profession_pt.add_post(title: "skill3", post_order: 3, content: "skill 3 description");
     profession_pt.add_post(title: "skill4", post_order: 4, content: "skill 4 description");
+
+    
+    exp_pt = current_site.post_types.create({name: 'Work_Experience', slug: 'Work_Experience'.to_s.parameterize, description: 'Work Experience', data_options: {has_category: false, has_tags: false, not_deleted: true, has_summary: false, has_content: true, has_comments: false, has_picture: false, has_template: false}})
+
+    exp_pt.add_field({name: "Period", slug: "exp_period", description: "Experience period"}, {field_key: "text_box"})
+    exp_pt.add_post(title: "exp1", post_order: 1, content: "Exp 1 description", fields: {exp_period: '01/01/2011 - 01/01/2012'});
+    exp_pt.add_post(title: "exp2", post_order: 2, content: "Exp 2 description", fields: {exp_period: '02/01/2012 - 01/01/2013'});
+    exp_pt.add_post(title: "exp3", post_order: 3, content: "Exp 3 description", fields: {exp_period: '02/01/2013 - 01/01/2014'});
+    exp_pt.add_post(title: "exp4", post_order: 4, content: "Exp 4 description", fields: {exp_period: '02/01/2014 - Current'});
+
+
+    edu_pt = current_site.post_types.create({name: 'Education', slug: 'Education'.to_s.parameterize, description: 'Education', data_options: {has_category: false, has_tags: false, not_deleted: true, has_summary: false, has_content: true, has_comments: false, has_picture: false, has_template: false}})
+
+    edu_pt.add_field({name: "Period", slug: "edu_period", description: "Education period"}, {field_key: "text_box"})
+    edu_pt.add_post(title: "edu1", post_order: 1, content: "Edu 1 description", fields: {edu_period: '01/01/2011 - 01/01/2012'});
+    edu_pt.add_post(title: "edu2", post_order: 2, content: "Edu 2 description", fields: {edu_period: '02/01/2012 - 01/01/2013'});
+    edu_pt.add_post(title: "edu3", post_order: 3, content: "Edu 3 description", fields: {edu_period: '02/01/2013 - 01/01/2014'});
+    edu_pt.add_post(title: "edu4", post_order: 4, content: "Edu 4 description", fields: {edu_period: '02/01/2014 - Current'});
 =begin
     extra_post_type = [
            {name: 'Personal_Details', description: 'Personal Details', options: {has_category: false, has_tags: false, not_deleted: true, has_summary: false, has_content: true, has_comments: false, has_picture: false, has_template: false }}

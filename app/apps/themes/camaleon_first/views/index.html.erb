@@ -60,75 +60,51 @@
             <div class="col-lg-8 col-lg-offset-2">
                 <h2>Work experience</h2>
                 <br/><br/>
-<ul class="timeline">
-            <li class="timeline-item">
-              <div class="timeline-badge"><i class="glyphicon glyphicon-briefcase"></i></div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4 class="timeline-title">Item1</h4>
-                  <p><small class="text-muted"><i class="glyphicon glyphicon-calendar"></i> Jan 2011 - Jan 2012:w
-</small></p>
-                </div>
-                <div class="timeline-body">
-                  <p>item1 content</p>
-                </div>
-              </div>
-            </li>
-            <li class="timeline-item">
-              <div class="timeline-badge"><i class="glyphicon glyphicon-briefcase"></i></div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4 class="timeline-title">Item1</h4>
-                  <p><small class="text-muted"><i class="glyphicon glyphicon-calendar"></i> Jan 2011 - Jan 2012:w
-</small></p>
-                </div>
-                <div class="timeline-body">
-                  <p>item1 content</p>
-                </div>
-              </div>
-            </li>
-            <li class="timeline-item">
-              <div class="timeline-badge"><i class="glyphicon glyphicon-briefcase"></i></div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4 class="timeline-title">Item1</h4>
-                  <p><small class="text-muted"><i class="glyphicon glyphicon-calendar"></i> Jan 2011 - Jan 2012:w
-</small></p>
-                </div>
-                <div class="timeline-body">
-                  <p>item1 content</p>
-                </div>
-              </div>
-            </li>
-            <li class="timeline-item">
-              <div class="timeline-badge"><i class="glyphicon glyphicon-briefcase"></i></div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4 class="timeline-title">Item1</h4>
-                  <p><small class="text-muted"><i class="glyphicon glyphicon-calendar"></i> Jan 2011 - Jan 2012:w
-</small></p>
-                </div>
-                <div class="timeline-body">
-                  <p>item1 content</p>
-                </div>
-              </div>
-            </li>
-            <li class="timeline-item">
-              <div class="timeline-badge"><i class="glyphicon glyphicon-briefcase"></i></div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4 class="timeline-title">Item1</h4>
-                  <p><small class="text-muted"><i class="glyphicon glyphicon-calendar"></i> Jan 2011 - Jan 2012:w
-</small></p>
-                </div>
-                <div class="timeline-body">
-                  <p>item1 content</p>
-                </div>
-              </div>
-            </li>
-          </ul>
-         </div>
+                <ul class="timeline">
+                <% p_exps = current_site.the_posts("work_experience").all.decorate.each do |p_exp| %>
+                    <li class="timeline-item">
+                      <div class="timeline-badge"><i class="glyphicon glyphicon-briefcase"></i></div>
+                      <div class="timeline-panel">
+                        <div class="timeline-heading">
+                          <h4 class="timeline-title"><%= p_exp.the_title %></h4>
+                          <p><small class="text-muted"><i class="glyphicon glyphicon-calendar"></i><%= p_exp.get_field('exp_period') %> </small></p>
+                        </div>
+                        <div class="timeline-body">
+                          <p><%= p_exp.the_content %></p>
+                        </div>
+                      </div>
+                    </li>
+                <% end %>
+                </ul>
+            </div>
         </div>
+
+        <hr/>
+
+        
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>Education</h2>
+                <br/><br/>
+                <ul class="timeline">
+                <% p_edus = current_site.the_posts("education").all.decorate.each do |p_edu| %>
+                    <li class="timeline-item">
+                      <div class="timeline-badge"><i class="glyphicon glyphicon-briefcase"></i></div>
+                      <div class="timeline-panel">
+                        <div class="timeline-heading">
+                          <h4 class="timeline-title"><%= p_edu.the_title %></h4>
+                          <p><small class="text-muted"><i class="glyphicon glyphicon-calendar"></i><%= p_edu.get_field('edu_period') %> </small></p>
+                        </div>
+                        <div class="timeline-body">
+                          <p><%= p_edu.the_content %></p>
+                        </div>
+                      </div>
+                    </li>
+                <% end %>
+                </ul>
+            </div>
+        </div>
+
     </div> <!-- /container -->
 </div><!-- /ww -->
 
