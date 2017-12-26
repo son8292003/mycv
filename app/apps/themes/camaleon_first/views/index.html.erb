@@ -50,7 +50,7 @@
                 <div class="col-lg-12"</div>
                 <ul class="list-group">
                   <% p_skills = current_site.the_posts("professional_skills").all.decorate.each do |p_skill| %>
-                    <li class="list-group-item"><%= p_skill.the_title %> <%= "- "+p_skill.the_content if p_skill.the_content.length>1 %></li>
+                    <li class="list-group-item"><%= p_skill.the_title %> <%== p_skill.the_content if p_skill.the_content.length>1 %></li>
                   <% end %>
                 </div>
             </div>
@@ -73,7 +73,7 @@
                           <p><small class="text-muted"><i class="glyphicon glyphicon-calendar"></i><%= p_exp.get_field('exp_period') %> </small></p>
                         </div>
                         <div class="timeline-body">
-                          <p><%= p_exp.the_content %></p>
+                          <p><%== p_exp.the_content %></p>
                         </div>
                       </div>
                     </li>
@@ -100,7 +100,7 @@
                           <p><small class="text-muted"><i class="glyphicon glyphicon-calendar"></i><%= p_edu.get_field('edu_period') %> </small></p>
                         </div>
                         <div class="timeline-body">
-                          <p><%= p_edu.the_content %></p>
+                          <p><%== p_edu.the_content %></p>
                         </div>
                       </div>
                     </li>
@@ -120,7 +120,7 @@
                 <div class="col-lg-12"</div>
                 <ul class="list-group">
                   <% p_langs = current_site.the_posts("languages").all.decorate.each do |p_lang| %>
-                    <li class="list-group-item"><%= p_lang.the_title %> <%= "- "+p_lang.the_content if p_lang.the_content.length>1 %></li>
+                    <li class="list-group-item"><%= p_lang.the_title %> <%== p_lang.the_content if p_lang.the_content.length>1 %></li>
                   <% end %>
                 </div>
             </div>
