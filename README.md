@@ -11,7 +11,9 @@ This project also use a CMS gem call Camaleon: https://github.com/owen2345/camal
 
 To run this project, following the steps:<br/>
 1 clone this project to your workspace<br/>
-2 modify config/database.yml to fill in your database setting<br/>
-3 run 'bundle install' at the project folder<br/>
-4 run 'rails s -e [environment]' at the project folder<br/>
-5 a setup page should be viewable at http://localhost:3000
+2 create database for your environment
+3 modify config/database.yml to fill in your database setting<br/>
+4 run 'rake db:migrate RAILS_ENV=[environment]' (replace [environment with your environment name])<br/>
+5 run 'bundle install' at the project folder<br/>
+6 run 'rails s -e [environment]' at the project folder (replace [environment with your environment name])<br/>
+7 a setup page should be viewable at http://localhost:3000
